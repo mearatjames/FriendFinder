@@ -12,20 +12,21 @@
         <i class="circular users icon"></i>
         Friends Finder
     </h2>
+    <form action="/api/friend" method="post">
     <div class="ui attached segment">
         <div class="ui form">
             <div class="field">
                 <label>Name</label>
-                <input type="text">
+                <input id="name" type="text" required>
             </div>
             <div class="field">
                 <label>Photo URL</label>
-                <input type="text">
+                <input id="photoUrl" type="text" required>
             </div>
         </div>
         <div class="ui divider"></div>
         <div class="ui form">
-            <label>1. What's your favorite fruit?</label>
+            <label>1. Your mind is always buzzing with unexplored ideas and plans.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -60,7 +61,7 @@
             </div>
         </div>
         <div class="ui form">
-            <label>2. What's your favorite fruit?</label>
+            <label>2. Generally speaking, you rely more on your experience than your imagination.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -95,7 +96,7 @@
             </div>
         </div>
         <div class="ui form">
-            <label>3. What's your favorite fruit?</label>
+            <label>3. You find it easy to stay relaxed and focused even when there is some pressure.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -130,7 +131,7 @@
             </div>
         </div>
         <div class="ui form">
-            <label>4. What's your favorite fruit?</label>
+            <label>4. You rarely do something just out of sheer curiosity.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -165,7 +166,7 @@
             </div>
         </div>
         <div class="ui form">
-            <label>5. What's your favorite fruit?</label>
+            <label>5. People can rarely upset you.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -200,7 +201,7 @@
             </div>
         </div>
         <div class="ui form">
-            <label>6. What's your favorite fruit?</label>
+            <label>6. It is often difficult for you to relate to other people’s feelings.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -235,7 +236,7 @@
             </div>
         </div>
         <div class="ui form">
-            <label>7. What's your favorite fruit?</label>
+            <label>7. In a discussion, truth should be more important than people’s sensitivities.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -270,7 +271,7 @@
             </div>
         </div>
         <div class="ui form">
-            <label>8. What's your favorite fruit?</label>
+            <label>8. You rarely get carried away by fantasies and ideas.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -305,7 +306,7 @@
             </div>
         </div>
         <div class="ui form">
-            <label>9. What's your favorite fruit?</label>
+            <label>9. You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -340,7 +341,7 @@
             </div>
         </div>
         <div class="ui form">
-            <label>10. What's your favorite fruit?</label>
+            <label>10. You feel more energetic after spending time with a group of people.</label>
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
@@ -375,11 +376,41 @@
             </div>
         </div>
     </div>
-    <div class="ui bottom attached button" tabindex="0">Submit</div>
+    <div id="submit" class="ui bottom attached button" tabindex="0">Submit</div>
+</form>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
     <script>
         $('.ui.radio.checkbox').checkbox()
+        $('#submit').on('click', function() {
+            let name = document.getElementById('name').value.trim()
+            let photoUrl = document.getElementById('photoUrl').value.trim()
+            let score = []
+            for (let i = 1; i < 11; i++) {
+               let radio = document.getElementsByName('answer' + i)
+               for (let j = 0; j < radio.length; j++) {
+                  if (radio[j].checked) {
+                      score.push(parseInt(radio[j].value))
+                      break
+                  }
+               }
+            }
+        let newFriend = {
+            name: name,
+            photo: photoUrl,
+            score: score
+        }
+        
+fetch('/api/friend', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    body: JSON.stringify(newFriend)
+  })
+    .then(r => {
+      console.log(r)
+    })
+    .catch(e => console.error(e))
+})
     </script>
 </body>
 </html>
