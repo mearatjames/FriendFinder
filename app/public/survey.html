@@ -413,6 +413,7 @@
         $('.ui.radio.checkbox').checkbox()
         $('#submit').on('click', function() {
             event.preventDefault()
+        //Grabbing value from the form
             let name = document.getElementById('name').value.trim()
             let photoUrl = document.getElementById('photoUrl').value.trim()
             let score = []
@@ -425,13 +426,25 @@
                   }
                }
             }
+        //Create new friend object based on the form value
         let newFriend = {
             name: name,
             photo: photoUrl,
             score: score
         }
 
-        if (name !== "" && photoUrl !== "" && score.length > 10) {
+        //Check if form is fully completed
+        if (name !== "" && photoUrl !== "" && score.length == 10) {
+        //Clear out the form after user submitted the survey
+            document.getElementById('name').value = ''
+            document.getElementById('photoUrl').value = ''
+            for (let i = 1; i < 11; i++) {
+               let radio = document.getElementsByName('answer' + i)
+               for (let j = 0; j < radio.length; j++) {
+                  radio[j].checked = 0
+               }
+            }
+        //Perform fetch POST request to apiRoutes
             fetch('/api/friend', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -441,12 +454,14 @@
                   return r.json()
                 })
                 .then(d => {
+        //Show the modal of the best match
                 $('.ui.modal').modal('show')
                 document.getElementById('matchName').innerText = d.name
                 document.getElementById('matchPhoto').setAttribute('src', d.photo)
                 })
                 .catch(e => console.error(e))
         } else {
+        //Error message if the form is incomplete
             document.getElementById('error').innerText = 'Survey is incomplete!! Please make sure you enter your name, photo URL, and answer all 10 questions.'
         }
 

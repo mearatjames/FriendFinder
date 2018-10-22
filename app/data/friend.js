@@ -1,3 +1,5 @@
+//friend array serving as the api for the app
+
 let friendArr = [
     {
       name: "Test Friend",
