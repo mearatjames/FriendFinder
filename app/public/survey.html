@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
 </head>
 <body>
-    <h2 class="ui center aligned icon header">
-        <i class="circular users icon"></i>
-        Friends Finder
+    <h2 style="margin-top:20px" class="ui center aligned icon header">
+        <a style="color:inherit" href="/">
+            <i class="circular users icon"></i>
+            Friends Finder
+        </a>
     </h2>
     <form action="/api/friend" method="post">
     <div class="ui attached segment">
@@ -380,11 +382,19 @@
     </div>
         <button type="submit" id="submit" class="ui bottom attached button" tabindex="0">Submit</button> 
 </form>
-
+<hr>
+<div style="margin-bottom:20px">
+    <span>
+        <a href="https://github.com/mearatjames/FriendFinder/tree/dev">Github Repo</a> | 
+    </span> 
+    <span>
+        <a href="/api/friend">API Friends List</a>
+    </span> 
+</div>
 <div class="ui modal">
   <i class="close icon"></i>
   <div class="header">
-    Best Match
+    Your Best Match is:
   </div>
   <div class="image content">
     <div class="ui medium image">
@@ -401,6 +411,7 @@
     <script>
         $('.ui.radio.checkbox').checkbox()
         $('#submit').on('click', function() {
+            event.preventDefault()
             let name = document.getElementById('name').value.trim()
             let photoUrl = document.getElementById('photoUrl').value.trim()
             let score = []
