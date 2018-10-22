@@ -30,7 +30,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer1" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer1" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -65,7 +65,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer2" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer2" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -100,7 +100,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer3" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer3" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -135,7 +135,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer4" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer4" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -170,7 +170,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer5" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer5" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -205,7 +205,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer6" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer6" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -240,7 +240,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer7" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer7" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -275,7 +275,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer8" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer8" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -310,7 +310,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer9" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer9" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -345,7 +345,7 @@
             <div class="inline fields">
                 <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="answer10" tabindex="0" class="hidden" value="1">
+                    <input required type="radio" name="answer10" tabindex="0" class="hidden" value="1">
                     <label>1</label>
                 </div>
                 </div>
@@ -376,8 +376,24 @@
             </div>
         </div>
     </div>
-    <div id="submit" class="ui bottom attached button" tabindex="0">Submit</div>
+        <button type="submit" id="submit" class="ui bottom attached button" tabindex="0">Submit</button> 
 </form>
+
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Best Match
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img id="matchPhoto" src="">
+    </div>
+    <div class="description">
+      <div id="matchName" class="ui header"></div>
+    </div>
+  </div>
+</div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
     <script>
@@ -400,14 +416,19 @@
             photo: photoUrl,
             score: score
         }
-        
+
 fetch('/api/friend', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify(newFriend)
   })
     .then(r => {
-      console.log(r)
+      return r.json()
+    })
+    .then(d => {
+    $('.ui.modal').modal('show')
+    document.getElementById('matchName').innerText = d.name
+    document.getElementById('matchPhoto').setAttribute('src', d.photo)
     })
     .catch(e => console.error(e))
 })
