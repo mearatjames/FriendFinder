@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FriendFinder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
+</head>
+<body>
+    <h2 style="margin-top:20px" class="ui center aligned icon header">
+        <a style="color:inherit" href="/">
+            <i class="circular users icon"></i>
+            Friends Finder
+        </a>
+    </h2>
+    <div class="ui attached segment">
+        <h3>
+            Answer a few basic questions.
+        </h3>
+        <h3>
+            Then find the friend with the greatest compatibility!
+        </h3>
+    </div>
+    <div id="survey" class="ui bottom attached button" tabindex="0">Start the Survey</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
+    <script>
+        //Link to survey.html
+        document.getElementById('survey').addEventListener('click', function (event) {
+            window.location = '/survey'
+        })
+    </script>
+</body>
+</html>

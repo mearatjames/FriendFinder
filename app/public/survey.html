@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
+</head>
+<body>
+    <h2 style="margin-top:20px" class="ui center aligned icon header">
+        <a style="color:inherit" href="/">
+            <i class="circular users icon"></i>
+            Friends Finder
+        </a>
+    </h2>
+    <form action="/api/friend" method="post">
+    <div class="ui attached segment">
+        <div class="ui form">
+            <div class="field">
+                <label>Name</label>
+                <input id="name" type="text" required>
+            </div>
+            <div class="field">
+                <label>Photo URL</label>
+                <input id="photoUrl" type="text" required>
+            </div>
+        </div>
+        <h3>Please rate the following statements on a scale of 1 to 5</h3>
+        <h4>1 = Strongly Disagree;  5 = Strongly Agree</h4>
+        <div class="ui divider"></div>
+        <div class="ui form">
+            <label>1. Your mind is always buzzing with unexplored ideas and plans.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer1" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer1" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer1" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer1" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer1" tabindex="0" class="hidden" value="5">
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>2. Generally speaking, you rely more on your experience than your imagination.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer2" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer2" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer2" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer2" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer2" tabindex="0" class="hidden" value="5">
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>3. You find it easy to stay relaxed and focused even when there is some pressure.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer3" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer3" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer3" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer3" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer3" tabindex="0" class="hidden" value="5">
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>4. You rarely do something just out of sheer curiosity.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer4" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer4" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer4" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer4" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer4" tabindex="0" class="hidden" value="5"> 
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>5. People can rarely upset you.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer5" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer5" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer5" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer5" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer5" tabindex="0" class="hidden" value="5">
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>6. It is often difficult for you to relate to other people’s feelings.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer6" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer6" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer6" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer6" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer6" tabindex="0" class="hidden" value="5">
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>7. In a discussion, truth should be more important than people’s sensitivities.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer7" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer7" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer7" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer7" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer7" tabindex="0" class="hidden" value="5">
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>8. You rarely get carried away by fantasies and ideas.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer8" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer8" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer8" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer8" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer8" tabindex="0" class="hidden" value="5">
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>9. You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer9" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer9" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer9" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer9" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer9" tabindex="0" class="hidden" value="5">
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>10. You feel more energetic after spending time with a group of people.</label>
+            <div class="inline fields">
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input required type="radio" name="answer10" tabindex="0" class="hidden" value="1">
+                    <label>1</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer10" tabindex="0" class="hidden" value="2">
+                    <label>2</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer10" tabindex="0" class="hidden" value="3">
+                    <label>3</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer10" tabindex="0" class="hidden" value="4">
+                    <label>4</label>
+                </div>
+                </div>
+                <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="answer10" tabindex="0" class="hidden" value="5">
+                    <label>5</label>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div style="color:red" id="error"></div>
+        <button type="submit" id="submit" class="ui bottom attached button" tabindex="0">Submit</button> 
+</form>
+<hr>
+<div style="margin-bottom:20px">
+    <span>
+        <a href="https://github.com/mearatjames/FriendFinder/tree/dev">Github Repo</a> | 
+    </span> 
+    <span>
+        <a href="/api/friend">API Friends List</a>
+    </span> 
+</div>
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Your Best Match is:
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img id="matchPhoto" src="">
+    </div>
+    <div class="description">
+      <div id="matchName" class="ui header"></div>
+    </div>
+  </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
+    <script>
+        $('.ui.radio.checkbox').checkbox()
+        $('#submit').on('click', function() {
+            event.preventDefault()
+        //Grabbing value from the form
+            let name = document.getElementById('name').value.trim()
+            let photoUrl = document.getElementById('photoUrl').value.trim()
+            let score = []
+            for (let i = 1; i < 11; i++) {
+               let radio = document.getElementsByName('answer' + i)
+               for (let j = 0; j < radio.length; j++) {
+                  if (radio[j].checked) {
+                      score.push(parseInt(radio[j].value))
+                      break
+                  }
+               }
+            }
+        //Create new friend object based on the form value
+        let newFriend = {
+            name: name,
+            photo: photoUrl,
+            score: score
+        }
+
+        //Check if form is fully completed
+        if (name !== "" && photoUrl !== "" && score.length == 10) {
+        //Clear out the form after user submitted the survey
+            document.getElementById('name').value = ''
+            document.getElementById('photoUrl').value = ''
+            for (let i = 1; i < 11; i++) {
+               let radio = document.getElementsByName('answer' + i)
+               for (let j = 0; j < radio.length; j++) {
+                  radio[j].checked = 0
+               }
+            }
+        //Perform fetch POST request to apiRoutes
+            fetch('/api/friend', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                body: JSON.stringify(newFriend)
+              })
+                .then(r => {
+                  return r.json()
+                })
+                .then(d => {
+        //Show the modal of the best match
+                $('.ui.modal').modal('show')
+                document.getElementById('matchName').innerText = d.name
+                document.getElementById('matchPhoto').setAttribute('src', d.photo)
+                })
+                .catch(e => console.error(e))
+        } else {
+        //Error message if the form is incomplete
+            document.getElementById('error').innerText = 'Survey is incomplete!! Please make sure you enter your name, photo URL, and answer all 10 questions.'
+        }
+
+})
+    </script>
+</body>
+</html>
